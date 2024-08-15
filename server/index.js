@@ -26,12 +26,14 @@ const port = process.env.PORT || 5000;
 
 MongoDB();
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Hello" });
+});
+
 app.use("/api", require("./Routes/AddProduct"));
 app.use("/api", require("./Routes/LoginRoute"));
 app.use("/api", require("./Routes/DisplayProduct"));
 app.use("/api", require("./Routes/EditProduct"));
-
-
 
 // Start the server
 app.listen(port, () => {
