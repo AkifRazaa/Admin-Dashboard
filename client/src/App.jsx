@@ -33,7 +33,7 @@ const App = () => {
                   sx={{
                     flexGrow: 1,
                     p: 3,
-                    marginLeft: { sm: `${drawerWidth}px` },
+                    marginLeft: { xs: 0, md: 5, sm: 5 },
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                   }}
                 >

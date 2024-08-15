@@ -163,7 +163,7 @@ const EditProduct = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 500, mx: "auto", mt: 4 }}>
+    <Box sx={{ minWidth: 300, maxWidth: 500, mt: 4, mr:5  }}>
       <Typography variant="h4" gutterBottom>
         Edit Product
       </Typography>

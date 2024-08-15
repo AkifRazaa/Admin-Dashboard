@@ -82,10 +82,11 @@ function ResponsiveDrawer(props) {
       <Divider />
 
       <Button
-        variant="outlined"
+        color="error"
+        variant="contained"
         startIcon={<ExitToAppIcon />}
         onClick={handleLogout}
-        sx={{mt:50, ml: 5}}
+        sx={{ mt: 50, ml: 5 }}
       >
         Logout
       </Button>
@@ -93,13 +94,17 @@ function ResponsiveDrawer(props) {
   );
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", mx: "auto" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          backgroundColor: { sm: "white" },
+          color: { xs: "white", sm: "black" },
+          boxShadow: "none",
+          borderBottom: "1px solid #e0e0e0",
         }}
       >
         <Toolbar>
