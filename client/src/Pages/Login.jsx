@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, mx: "auto", mt: 5 }}>
+    <Box sx={{ maxWidth: 400, mx: "auto", mt: 30 }}>
       <Typography variant="h4" gutterBottom>
         Login
       </Typography>

@@ -85,6 +85,7 @@ function ResponsiveDrawer(props) {
         variant="outlined"
         startIcon={<ExitToAppIcon />}
         onClick={handleLogout}
+        sx={{mt:50, ml: 5}}
       >
         Logout
       </Button>
