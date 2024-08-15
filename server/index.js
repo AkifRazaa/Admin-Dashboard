@@ -27,7 +27,7 @@ const port = process.env.PORT || 5000;
 MongoDB();
 
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "Hello" });
+  res.json("Hello");
 });
 
 app.use("/api", require("./Routes/AddProduct"));
