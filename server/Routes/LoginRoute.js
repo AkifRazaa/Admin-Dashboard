@@ -11,11 +11,14 @@ router.post("/login", async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
+
+    // If user does not exists send Invalid credentials message.
     if (!user)
       return res
         .status(400)
         .json({ success: false, message: "Invalid credentials" });
 
+    //Compare passwords
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
       return res

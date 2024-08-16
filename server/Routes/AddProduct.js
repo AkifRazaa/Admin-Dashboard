@@ -3,7 +3,7 @@ const router = express.Router();
 const cloudinary = require("cloudinary").v2;
 const Product = require("../Models/Product");
 
-router.post("/add-product",  async (req, res) => {
+router.post("/add-product", async (req, res) => {
   try {
     const { name, price, quantity, pictures, userId } = req.body;
 

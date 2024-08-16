@@ -18,14 +18,15 @@ import { Delete } from "@mui/icons-material";
 import axios from "axios";
 
 const DisplayProducts = () => {
-  const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [products, setProducts] = useState([]); //product state
+  const [searchTerm, setSearchTerm] = useState(""); //search state
   const [loading, setLoading] = useState(false); // Loading state
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
+  //function for fetch products from backend
   const fetchProducts = async () => {
     setLoading(true); // Start loading
     try {
@@ -42,6 +43,7 @@ const DisplayProducts = () => {
     }
   };
 
+  //function to delete the product
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/products/${id}`, {

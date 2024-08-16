@@ -59,7 +59,7 @@ const Login = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#f4f6f8", // Light grey background
+        backgroundColor: "#f4f6f8",
         padding: 2,
       }}
     >
@@ -76,6 +76,9 @@ const Login = () => {
         <Typography variant="h4" gutterBottom align="center">
           Login
         </Typography>
+
+        <p style={{ textAlign: "center" }}>Email: user@soft-enterprise.com</p>
+        <p style={{ textAlign: "center" }}>Password: 123123abc</p>
 
         {error && (
           <Alert severity="error" sx={{ mb: 2 }}>

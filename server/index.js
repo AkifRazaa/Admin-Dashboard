@@ -24,12 +24,14 @@ cloudinary.config({
 
 const port = process.env.PORT || 5000;
 
+// Function to connect with database
 MongoDB();
 
 app.get("/", (req, res) => {
   res.json("Hello");
 });
 
+// Routes that will be used
 app.use("/api", require("./Routes/AddProduct"));
 app.use("/api", require("./Routes/LoginRoute"));
 app.use("/api", require("./Routes/DisplayProduct"));

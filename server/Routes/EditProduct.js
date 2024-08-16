@@ -16,7 +16,10 @@ router.get("/products", async (req, res) => {
 router.get("/products/:id", async (req, res) => {
   try {
     const productId = req.params.id;
-    const product = await Product.findById(productId).populate("userId", "email");
+    const product = await Product.findById(productId).populate(
+      "userId",
+      "email"
+    );
     res.status(200).json(product);
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });
@@ -27,10 +30,19 @@ router.get("/products/:id", async (req, res) => {
 router.put("/products/:id", async (req, res) => {
   try {
     const productId = req.params.id;
-    const updatedProduct = await Product.findByIdAndUpdate(productId, req.body, {
-      new: true,
-    });
-    res.status(200).json({ message: "Product updated successfully", product: updatedProduct });
+    const updatedProduct = await Product.findByIdAndUpdate(
+      productId,
+      req.body,
+      {
+        new: true,
+      }
+    );
+    res
+      .status(200)
+      .json({
+        message: "Product updated successfully",
+        product: updatedProduct,
+      });
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });
   }

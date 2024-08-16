@@ -33,6 +33,7 @@ const AddProduct = () => {
     setErrors({});
   };
 
+  //Function for input validations
   const validate = () => {
     const newErrors = {};
 
@@ -58,6 +59,7 @@ const AddProduct = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  //Function to convert the user uploaded images to base64 then the basse64 of each image will be sent to backend to upload them on cloudinary
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     const updatedPictures = [...formData.pictures];
@@ -75,6 +77,7 @@ const AddProduct = () => {
     });
   };
 
+  //Function to handle remove images which the user removes
   const handleRemoveImage = (index) => {
     const updatedPictures = formData.pictures.filter((_, i) => i !== index);
     const updatedPreviewImages = previewImages.filter((_, i) => i !== index);
@@ -86,7 +89,7 @@ const AddProduct = () => {
     e.preventDefault();
 
     if (validate()) {
-      setLoading(true); // Set loading to true
+      setLoading(true);
       try {
         const response = await axios.post(
           "http://localhost:5000/api/add-product",
@@ -114,13 +117,13 @@ const AddProduct = () => {
       } catch (error) {
         alert(error.message);
       } finally {
-        setLoading(false); // Set loading to false
+        setLoading(false);
       }
     }
   };
 
   return (
-    <Box sx={{ minWidth: 300, maxWidth: 500, mt: 4, mr:5 }}>
+    <Box sx={{ minWidth: 300, maxWidth: 500, mt: 4, mr: 5 }}>
       <Typography variant="h4" gutterBottom>
         Add Product
       </Typography>
@@ -185,6 +188,7 @@ const AddProduct = () => {
             mt: 2,
           }}
         >
+          {/* The user uploaded images will be displayed here using the map function */}
           {previewImages.map((image, index) => (
             <Box key={index} sx={{ position: "relative" }}>
               <img
@@ -212,7 +216,7 @@ const AddProduct = () => {
             type="submit"
             variant="contained"
             color="primary"
-            disabled={loading} // Disable button while loading
+            disabled={loading}
             fullWidth
           >
             Submit
@@ -236,6 +240,3 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
-
-
-

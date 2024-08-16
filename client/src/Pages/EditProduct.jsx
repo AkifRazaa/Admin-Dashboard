@@ -15,8 +15,8 @@ import { Delete } from "@mui/icons-material";
 import axios from "axios";
 
 const EditProduct = () => {
-  const [products, setProducts] = useState([]);
-  const [selectedProductId, setSelectedProductId] = useState("");
+  const [products, setProducts] = useState([]); //this is store products fetched from backend
+  const [selectedProductId, setSelectedProductId] = useState(""); //to store the id of the selected product
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -82,6 +82,7 @@ const EditProduct = () => {
     setErrors({});
   };
 
+  //Validation function to validate user input
   const validate = () => {
     const newErrors = {};
 
@@ -90,7 +91,6 @@ const EditProduct = () => {
     } else if (formData.name.trim().length < 3) {
       newErrors.name = "Name must be at least 3 characters long.";
     }
-    
 
     if (!formData.price || isNaN(formData.price)) {
       newErrors.price = "Price must be a number.";
@@ -104,6 +104,7 @@ const EditProduct = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  //Function to convert the updated images to base64
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     const updatedPictures = [...formData.pictures];
@@ -121,6 +122,7 @@ const EditProduct = () => {
     });
   };
 
+  //Function to handlr remove images if user removes any image.
   const handleRemoveImage = (index) => {
     const updatedPictures = formData.pictures.filter((_, i) => i !== index);
     const updatedPreviewImages = previewImages.filter((_, i) => i !== index);
@@ -128,6 +130,7 @@ const EditProduct = () => {
     setPreviewImages(updatedPreviewImages);
   };
 
+  //Function to send data to backend
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -163,7 +166,7 @@ const EditProduct = () => {
   };
 
   return (
-    <Box sx={{ minWidth: 300, maxWidth: 500, mt: 4, mr:5  }}>
+    <Box sx={{ minWidth: 300, maxWidth: 500, mt: 4, mr: 5 }}>
       <Typography variant="h4" gutterBottom>
         Edit Product
       </Typography>
